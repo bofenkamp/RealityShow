@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e62f8a00cf2e94c961d71b194803d5, type: 3}
+  m_Name: DialogueContainer
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueContainer
+  Intro: 'It''s a bright sunny day in Los Angeles (just like it is every day in Los
+    Angeles) and it''s time for the most LA event that can happen: a reality-style
+    competition! $ makes % way through campus, and arrives in the green room as the
+    other contestants start to arrive. Let''s meet them all!
+
+
+'
+  IntroducingYou: And then there's you!
+  NewChallenge: 'It''s time for challenge #$!
+
+
+'
+  ChallengeIntroduction: 'This challenge is brought to you by $f, who teaches $d.
+
+
+    $pd
+
+    $pp
+
+
+    $n
+    announces the challenge:
+
+
+    $a
+
+
+    The challenge begins! Describe $y''s
+    approach to the challenge. If the challenge involves writing or creating something,
+    don''t feel like you have to create it all here, but give a summary of what $y
+    tries to do.
+
+
+'
+  ChallengeOutcomesIntro: 'Let''s see how this challenge went for everyone...
+
+
+'
+  JudgeStarting: 'Now it''s time for $n to judge the competitors and decide a winner
+    of the challenge...
+
+
+'
+  ChallengeResults: 'The results are in! Before announcing the winner, here''s $n''s
+    feedback for each competitor:
+
+
+    $f
+
+
+    And finally, it''s time for $n to
+    announce the winner:
+
+
+    $a
+
+
+    Congratulations to $w for winning the challenge!
+    $w has immunity for this round. Everyone else is up for elimination.
+
+
+'
+  PlayerChooseWhoToTalkTo: '$n is free to start a conversation with one other player
+    of $pp choice before the elimination happens, if you want to. Who does $n choose?
+
+
+'
+  OpeningLineRequest: 'What does $n say to $o?
+
+
+'
+  NpcInitiateConvoWithPlayer: '$o wants to talk to $n.
+
+
+    $o: "$l"
+
+'
+  ConversationLine: '$n: "$l"
+
+'
+  EndOfConversation: '$n has ended the conversation.
+
+
+'
+  WaitForNpcToFinishTalking: 'Waiting for the other characters to finish their conversations...
+
+
+'
+  ChooseEliminationVote: 'It''s time for you to choose someone to vote for to be
+    eliminated. Keep in mind that everyone will know who everyone else voted for
+    when votes are revealed.
+
+
+    Who do you choose?
+
+
+'
+  LoadingVotes: 'The other participants are finalizing their votes...
+
+
+'
+  VoteRevealIntro: 'It''s time to reveal the votes.
+
+
+'
+  IndividualVote: '$n has chosen to vote for $v to be eliminated.
+
+'
+  VotingConclusion: '
+
+    $l has been eliminated from the competition.
+
+
+'
+  PlayerEliminated: Unfortunately, it looks like $n's story ends here. Better luck
+    next time!
+  PlayerWonFinalChallenge: 'Congratulations! $n won a spot in the final! And with
+    it, the power to choose who else gets that honor.
+
+
+    Who does $n choose to
+    join $po in the final two?
+
+
+'
+  NpcChooseSecondFinalist: '$w is deliberating who to choose to advance to the final...
+
+
+'
+  FinalistChoiceAnnouncement: '$w has chosen $f to join $po in the finals!
+
+
+'
+  FinalsIntro: "It's time for the finals! Please welcome our two finalists: $f!\n\nThey
+    stand before all the eliminated contestants, who will soon be voting for who
+    should be crowned the winner of this competiton.\n\nBut first, the finalists
+    have a chance to make their cases for why they should win.\n\nWhen asked, \"why
+    do you deserve to win this competition?\" what does $p say?\n\n "
+  WaitingForNpcFinalistSpeech: 'Waiting for the last finalist to make their case...
+
+
+'
+  FinalistSpeech: '$n:
+
+    $s
+
+
+'
+  EliminatedNpcAnnounceWinnerVote: '$n has voted and has the following to say to
+    each finalist:
+
+
+    $f
+
+
+    $a
+
+
+    $n has voted for $w!'
+  EliminatedAddressesFinalist: '$n turns to $w.
+
+    $f'
+  WinnerAnnouncement: 'And with $#/$t votes, we have a winner! It''s $w! Congratulations!!
+
+
+    Thanks
+    for playing, and congratulations to $w!'

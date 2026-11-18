@@ -1,0 +1,378 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190d016defca62041a492cbac019ac5e, type: 3}
+  m_Name: PromptsContainer
+  m_EditorClassIdentifier: Assembly-CSharp::PromptsContainer
+  DecideNamesHometownsPrefix: "I need you to create some basic profiles for a group
+    of fictional college students attending a large public college in Los Angeles.
+    For each student, I'll give you their gender, where they're from, and what year
+    in college they're in, and you need to decide their names and specific hometowns.
+    Names should be appropriate for where they're from. Hometowns can be a major
+    city, mid size city, mid size town, suburb, small town, rural locality, anything
+    as long as it exists in the real world. \n\nDeliver the output as a json with
+    no additional text. The json should have an array of all students called \"students\"
+    with five fields for each: (1) gender (exactly as given in the prompt), (2) hometown
+    (Format as [City], [Home state or country if international]), (3) year (exactly
+    as given in the prompt), (4) first_name (no two students should have the same
+    first name), (5) last_name. Here are the profiles:\n\n"
+  ExtendedProfilesPrefix: "I'm making a text-based video game where a player plays
+    a college student at a large public college in Los Angeles and enters a Survivor-style
+    reality competition where each round has a challenge and competitors vote on
+    a contestant to eliminate. I need you to generate bios for the some students
+    that are NPCs who are also competing in the competition. They should have a lot
+    of variety in archetypes and personalities. The information given for each of
+    these should vary a lot from person to person, especially in terms of archetypes,
+    and be distinct from each other. Make sure they're all well-rounded characters
+    who aren't one-note or purely stereotypes.\n\nFor each character, I will give
+    you the following information: first name, last name, gender, year, hometown,
+    major, some personality or physical traits (you're encouraged to develop them
+    beyond these; this is just a starting point), and a zero to ten scale rating
+    for their likability (0 is the most unlikable, 10 is the most likable), energy
+    (0 is the lowest energy, 10 is the highest energy), and status (0 = thinks of
+    themselves as very low status, 10 = thinks of themselves as very high status).
+    \n\nBased on this information, for each student, I need you to give me the following
+    (each section should be two or more sentences, roughly 200-240 characters in
+    length):\n- A physical description (how they look as they show up to the competition;
+    body type, current outfit, hair color and style, body language, anything else
+    about them that would stand out)\n- A summary of their background (for internal
+    use to inform their actions)\n- A summary of their personality (for internal
+    use to inform their actions)\n- Perceived personality (what the player, who is
+    just meeting them for the first time as the competitors arrive before the competition
+    starts, might observe, or how they appear based on first impressions. Avoid talking
+    about what others think about them or telling the player how to feel about them,
+    focusing only on observable details like \"they smile a lot\" or \"they seem
+    nervous\" or \"their posture is very rigid\" or \"they're being very social and
+    seem nice\")\n\nDeliver the output as a json with no additional text. The json
+    should have an array of all students called \"students\" with the following fields
+    (all as strings except the energy/likability/status values, which are ints):
+    first_name, last_name, gender, year, hometown, major, likability, energy, status,
+    physical_description, background, personality, perceived_personality.\n\nHere
+    are the profiles:\n\n"
+  ProfessorGenPrefix: 'I need you to generate a profile for a college professor or
+    course instructor who has volunteered to create and judge an original challenge
+    for a competition for students at the college they teach at. The challenge can
+    be of any nature, with subjective or objective results, but there will be # students
+    competing (all as individuals; no teams) and 1 winner of the challenge. Assume
+    there will be no ties. Make sure they''re a well-rounded character who isn''t
+    one-note or purely stereotypes.
+
+
+    I need the following information about
+    the professor/instructor:
+
+    - Full name
+
+    - Name students should use when
+    addressing them (Professor X, Dr. X, Mr./Ms./Mrs./Mx. X, just their first name,
+    Coach X, whatever they prefer)
+
+    - Hometown (formatted as [city name], [state
+    or country if international])
+
+    - Physical description ( (how they look as
+    they show up to the competition; body type, current outfit, hair color and style,
+    body language, anything else about them that would stand out)
+
+    - A summary
+    of their background (for internal use to inform their actions)
+
+    - A summary
+    of their personality (for internal use to inform their actions)
+
+    - Perceived
+    personality (what the competitors, who are just meeting them for the first time,
+    might observe, or how they appear based on first impressions. Avoid talking about
+    what others think about them or telling the reader how to feel about them, focusing
+    only on observable details like "they smile a lot" or "they seem nervous" or
+    "their posture is very rigid" or "they''re being very social and seem nice")
+
+    -
+    The announcement of their challenge. Write this in first person as the professor/instructor,
+    verbatim as they would explain the challenge in full to the competing students.
+    This announcement should contain all information necessary for someone to write
+    out exactly how they did the entire challenge (for example, no surprises, no
+    missing/external information outside of this announcement, no inclusion of documents
+    students would have to read, objects or images that must be studied, etc. there
+    should be no need to gather any information outside of what is present in the
+    announcement). Once the announcement is given, the challenge will start. No questions
+    or follow-up. All participants should be given the same materials and information
+    to complete the task. Do not explicitly mention the number of participants, winners,
+    or lack of ties or teams, since this is already implied. Challenges should never
+    be of a nature where there is a single, correct answer. Assume all participants
+    always have access to the complete text of the announcement itself (for example,
+    no memory exercises relating to the announcement). Since this is part of a broadcasted
+    competition, the process of completing the challenge should be at least somewhat
+    entertaining to an audience. All challenges should be completable by any college
+    student regardless of field of study, and should not require any specialized
+    knowledge.
+
+    - A short summary of the task for that challenge. A one sentence
+    answer to the question, "what did the competitors have to do in this challenge?"
+
+
+    Deliver
+    the output as a json with no additional text. The json should have the following
+    arguments: full_name, referred_name, gender, hometown, department, physical_description,
+    background, personality, challenge_announcement, challenge_summary.
+
+
+    Here''s
+    some information about them to get you started:
+
+
+'
+  ExistingProfs: '
+
+
+    The following challenges and challenge-givers already exist,
+    so make sure the challenge you generate here is sufficiently different from these,
+    with extra emphasis on challenges that reward different skills (for example,
+    athleticism, intelligence, creativity, strategy, performance, charisma, endurance,
+    tolerance of something uncomfortable, speed, etc.):
+
+
+'
+  FirstImpressions: '$f is a college $y who is arriving at a reality-style competition
+    at their college with rounds of challenges and eliminations. Here''s $f''s bio:
+
+
+    $b
+
+
+    And
+    here is how $f is trying to come off when meeting the other competitors for the
+    first time:
+
+
+    $p
+
+
+    Keep in mind that this is merely how they''re attempting
+    to present themselves, and the actual result may be different. If they try to
+    do something that might not work (for example, pretend they''re someone they''re
+    not, use a skill or knowledge it doesn''t look like they have, try to outdo other
+    competitors present, etc.), feel free to make them fail. Use their bio to judge
+    how much their presentation of themselves does or doesn''t go according to plan.
+
+
+    Based
+    on this, summarize in around 200-240 characters what other competitors, who are
+    just meeting $f for the first time, might observe about $f or how $f might appear
+    based on first impressions. Avoid talking about what others think or feel about
+    them, focusing only on observable details like "$f smiles a lot" or "$f seems
+    nervous" or "$f''s posture is very rigid" or "$f is being very social and seems
+    nice."'
+  PlayerChallengeAttempt: '$f is a college $y who is competing in a reality-style
+    competition at their college with various challenges. I want you to review the
+    following challenge, $f''s bio, and a description of what $f is trying to do,
+    and, based on what you know about $po, decide to what degree they succeed or
+    fail in the execution of what $ps is trying to do, and, based on that, summarize
+    $pp execution of the challenge. Do not explicitly say "$ps succeeded in $pp attempt"
+    or "$ps failed in $pp attempt." Only describe the final product/execution of
+    the challenge so that it may be judged, leaving out anything a judge wouldn''t
+    be able to see like his thoughts or internal plans.
+
+
+    Challenge description
+    (as given by the giver of the challenge):
+
+
+    $c
+
+
+    $f''s bio:
+
+
+    $b
+
+
+    What
+    $f is attempting to do:
+
+
+    $a'
+  GiveNpcChallenge: 'It''s time for a challenge!
+
+
+    This challenge is brought
+    to you by $tf, who teaches $d.
+
+
+    $pd
+
+    $pp
+
+
+    $n announces the challenge:
+
+
+    $a
+
+
+    Describe
+    $f''s execution of the challenge. Use their bio to inform any creative choices
+    they may make, how hard they try to succeed, and the degree to which $f succeeds
+    or fails.  If the challenge involves writing or creating something, don''t create
+    it all here, but give a summary of what $f writes/creates and the quality of
+    the execution. Describe ONLY their execution, not their thoughts, process, how
+    well or badly it went according to plan, or $n''s thoughts on the final product.
+    This should only describe a summary of what $n sees as the final result and nothing
+    else.'
+  GetChallengeJudgment: '$fn is a fictional character who teaches $d at a large public
+    college in Los Angeles. There''s a competition at the college where $n teaches,
+    involving students competing in various challenges. $n created and is the judge
+    of one of the challenges in this competition. Here is a description of the challenge
+    exactly as $n announced it:
+
+
+    $a
+
+
+    Here''s a summary of the execution
+    of each competitor''s execution of the challenge:
+
+
+    $s
+
+
+    I need you to
+    have $n review each student''s result of the challenge individually, give each
+    contestant feedback on how they did in the challenge, and decide on exactly one
+    student to be declared as the winner of this challenge, and announce that winner.
+    Use the following bio to inform $n''s decisions:
+
+
+    $b
+
+
+    Deliver the output
+    as a json with no additional text. The json should have the following arguments:
+
+    -
+    feedback (an array of objects, each with two fields: contestant_name and review)
+
+    -
+    winner_announcement
+
+    - winner_name'
+  InitiateConversation: '$r
+
+
+    $n is now free to have a private conversation with
+    one other competitor of $pp choice, or $ps can skip that conversation. $n can
+    talk about anything, be that forming an alliance, confronting an enemy, congratulating
+    someone who did well, discussing who to vote for in the upcoming elimination,
+    or any other reason.
+
+
+    The available people to talk to are: $c
+
+
+    Tell
+    me who $n chooses to talk to and what $n says to start the conversation. Present
+    this as a json with no other text, with two arguments: name (exactly as stated
+    in this prompt, or "Nobody" if $n doesn''t want to initiate a conversation with
+    anyone) and opening_line (leave as empty string if $n chooses to talk to nobody).'
+  ConversationInstructionsInitiate: '$nl comes up to $ns.
+
+
+'
+  ConversationInstructions: '$nl says to $ns: "$d"
+
+
+    Tell me what $ns says in
+    response, and whether or not $ns continues the conversation after $ns says that
+    line of dialogue.
+
+
+    Ouput the result as a json file with no other text, containing
+    the following arguments:
+
+    - dialogue (what $ns says in response)
+
+    - conversation_status
+    (either "continue" if $ns lets the conversation continue, or "end" if this is
+    the end of the conversation)'
+  ChooseWhoToEliminate: "It's time for $n to choose someone to eliminate from the
+    competition. Up for elimination are the following competitors: $e. $w is safe
+    from elimination for winning the challenge.\n\n$n needs to pick one competitor
+    to vote for to be eliminated. The competitor who receives the most votes will
+    be removed from the competition permanently. All votes will be cast publicly,
+    so everyone will know who everyone else voted for. \n\nKeep in mind that $n can
+    choose who to vote off for a variety of reasons; $ps can vote for the person
+    who's doing the worst job, whoever $ps thinks will receive the most votes from
+    the other competitors, someone $ps thinks is a threat (either because they're
+    likely to win or because they might vote $n out), whoever $ps likes the least,
+    or any other strategic reasons.\n\nWhich of the following people does $n vote
+    to eliminate from the competition (only include the name, exactly as shown in
+    this list, with no other text)?:\n\n$o"
+  ChooseOtherFinalist: '$w has earned a spot in the final two! And with it, the power
+    to choose who the other person in the final will be.
+
+
+    The two options are
+    $o. One will go to the final, and the other will be eliminated right now. The
+    final round is not a challenge like the others. The two finalists will both get
+    a chance to make their case for why they should win, and then all eliminated
+    contestants will get a chance to vote for who should win the entire competition.
+    Whoever receives the most votes gets the crown.
+
+
+    Which one does $w choose
+    to advance to the final? $w could choose whichever person they like more, or
+    they could choose the person they think they''d have the best chance of defeating
+    to win the whole thing.
+
+
+    $o?'
+  NpcFinalistSpeech: "$n has made it to the final round! Now all $n has to do is
+    win a vote conducted by all the eliminated contestants. Whoever gets the most
+    votes will be declared the winner. \n\n$n has a chance to make their case to
+    the eliminated players. So, when asked, \"why should you be declared the winner
+    of this competition and not $o?\" what does $n say?"
+  ChooseWinnerVote: 'It''s the final round, and it''s time to choose the winner of
+    the competition: either $o.
+
+
+    $n may be out of the running, but $n and the
+    other eliminated contestants each get to vote for who they think the winner should
+    be. Whoever gets the most votes will be crowned winner of the entire competition.
+
+
+    When
+    asked to make their case about why they should win, they said the following:
+
+
+    $s
+
+
+    $n
+    will get a chance to tell each finalist their thoughts on the game that finalist
+    played throughout, then to announce the finalist that gets their vote.
+
+
+    Output
+    the result as a json file with no other text, containing the following arguments:
+
+    -
+    name ($n)
+
+    - messages (an array of objects representing $n telling each finalist
+    what they thought about their performance overall, with these arguments: name
+    (name of who they''re addressing, exactly as stated in this prompt), message
+    (what $n says to them)
+
+    - vote_announcement ($n announcing who got their
+    vote and why)
+
+    - vote (the name of the finalist $n voted for, exactly as
+    it appears in this prompt)'
